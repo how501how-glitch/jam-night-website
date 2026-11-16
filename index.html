@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jam Night｜新店山上的音樂實驗場</title>
+<meta name="description" content="Jam Night 從新店花園新城開始，一群愛玩音樂的朋友把夜晚玩成音樂實驗場。A community music jam on a hillside in Xindian, New Taipei.">
+<meta name="theme-color" content="#F5F0E8">
+<meta property="og:title" content="Jam Night｜新店山上的音樂實驗場">
+<meta property="og:description" content="音樂就是玩樂。Music is play.">
+<meta property="og:image" content="images/e3-09-1600.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;700&display=swap">
+<link rel="preload" as="image" href="images/e3-09-1600.webp" imagesrcset="images/e3-09-800.webp 800w, images/e3-09-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<style>
+/* ---------- Tokens：Paper & Walnut（對比度皆依 WCAG 2.2 AA 計算） ---------- */
+:root{
+  --paper:#F5F0E8;      /* 背景 */
+  --card:#EDE5D8;       /* 區塊底色 */
+  --ink:#2A2622;        /* 內文 13.2:1 */
+  --muted:#6B6158;      /* 次要文字 5.3:1 */
+  --walnut:#5C4033;     /* 標題 8.3:1 */
+  --accent:#9A4F35;     /* 陶土色強調 5.2:1 */
+  --oak:#C4A878;        /* 裝飾用，不放文字 */
+  --rule:#D9CFC0;       /* 細線 */
+  --overlay:rgba(28,25,21,.94);
+
+  --display:"Fraunces","Noto Serif TC",serif;
+  --serif-zh:"Noto Serif TC","Fraunces",serif;
+  --sans:"Noto Sans TC",system-ui,-apple-system,"PingFang TC",sans-serif;
+
+  --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:64px;--s8:96px;--s9:144px;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1240px;
+  --nav-h:60px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#1C1915;--card:#25211C;--ink:#EDE6DA;--muted:#B5AA9A;
+    --walnut:#E6D8C2;--accent:#E0937A;--oak:#D2B48C;--rule:#3A332B;
+  }
+}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:clamp(1rem,.96rem + .2vw,1.0625rem);line-height:1.85;
+  font-synthesis:none;line-break:strict;text-autospace:normal;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.en{font-family:var(--display);font-weight:300;letter-spacing:.01em}
+.label{
+  font-family:var(--display);font-size:.8125rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 var(--s3);
+}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 14px;z-index:100}
+.skip:focus{left:8px}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:20;height:var(--nav-h);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;transition:border-color .3s;
+}
+.nav.scrolled{border-bottom-color:var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+.brand{font-family:var(--display);font-size:1.25rem;font-weight:500;text-decoration:none;color:var(--walnut);letter-spacing:.01em}
+.nav ul{display:flex;gap:clamp(4px,2vw,28px);list-style:none;margin:0;padding:0}
+.nav a.link{
+  display:inline-flex;align-items:center;min-height:44px;padding-inline:8px;
+  text-decoration:none;font-size:.9375rem;color:var(--muted);transition:color .2s;
+}
+.nav a.link:hover{color:var(--ink)}
+.nav a.link .en{display:none;margin-left:.4em;font-size:.875rem}
+@media (min-width:720px){.nav a.link .en{display:inline}}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(56px,10vw,128px) clamp(40px,6vw,72px)}
+.hero h1{
+  font-family:var(--display);font-weight:300;color:var(--walnut);
+  font-size:clamp(3.5rem,2rem + 8vw,9rem);line-height:.95;letter-spacing:-.02em;margin:0;
+}
+.hero-grid{display:grid;gap:var(--s5);margin-top:clamp(28px,4vw,56px)}
+@media (min-width:860px){.hero-grid{grid-template-columns:1.2fr 1fr;align-items:end}}
+.hero .lede br.d{display:none}@media (min-width:640px){.hero .lede br.d{display:inline}}
+.hero .lede{font-family:var(--serif-zh);font-weight:500;font-size:clamp(1.25rem,1.05rem + .9vw,1.75rem);line-height:1.6;color:var(--ink);margin:0;max-width:22em}
+.hero .lede-en{font-family:var(--display);font-weight:300;font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);line-height:1.55;color:var(--muted);margin:var(--s3) 0 0;max-width:32em}
+.facts{display:flex;gap:var(--s6);margin:0;padding:0;list-style:none}
+@media (min-width:860px){.facts{justify-content:flex-end}}
+.facts li{border-top:1px solid var(--rule);padding-top:var(--s3);min-width:7.5em}
+.facts b{display:block;font-family:var(--display);font-weight:300;font-size:clamp(2.5rem,2rem + 2vw,3.5rem);line-height:1;color:var(--walnut)}
+.facts span{font-size:.875rem;color:var(--muted)}
+
+.hero-photo{margin:0;padding-inline:var(--gutter);max-width:calc(var(--max) + 2*var(--gutter));margin-inline:auto}
+.hero-photo img{width:100%;aspect-ratio:16/8;object-fit:cover;object-position:50% 45%;border-radius:2px}
+@media (max-width:640px){.hero-photo img{aspect-ratio:4/3}}
+.hero-photo figcaption{display:flex;justify-content:space-between;gap:var(--s3);font-size:.8125rem;color:var(--muted);padding-top:var(--s2)}
+
+/* ---------- Sections ---------- */
+section{padding-block:clamp(72px,10vw,144px)}
+.section-head{display:grid;gap:var(--s3);margin-bottom:clamp(40px,6vw,80px)}
+@media (min-width:860px){.section-head{grid-template-columns:1fr 2fr;align-items:end}}
+h2{font-family:var(--serif-zh);font-weight:700;color:var(--walnut);font-size:clamp(2rem,1.5rem + 2.2vw,3.25rem);line-height:1.2;letter-spacing:.04em;margin:0}
+h2 .en{display:block;font-size:.5em;letter-spacing:.02em;color:var(--muted);margin-top:.3em}
+.section-head p{margin:0;color:var(--muted);max-width:36ic}
+
+/* About */
+.about{background:var(--card)}
+.story{display:grid;gap:clamp(32px,5vw,72px)}
+@media (min-width:860px){.story{grid-template-columns:5fr 6fr;align-items:center}}
+.story figure{margin:0}
+.story figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
+.story .text p{margin:0 0 var(--s4);max-width:36ic}
+.story .text p[lang=en]{font-family:var(--display);font-weight:300;font-size:1.0625rem;line-height:1.65;color:var(--muted);max-width:60ch}
+.quote{font-family:var(--serif-zh);font-weight:500;font-size:clamp(1.375rem,1.1rem + 1vw,1.875rem);line-height:1.55;color:var(--walnut);margin:0 0 var(--s5);padding-left:var(--s4);border-left:2px solid var(--oak)}
+
+.pillars{display:grid;gap:0;margin-top:clamp(56px,8vw,112px);padding:0;list-style:none;border-top:1px solid var(--rule)}
+@media (min-width:860px){.pillars{grid-template-columns:repeat(3,1fr)}}
+.pillars li{padding:var(--s5) 0;border-bottom:1px solid var(--rule)}
+@media (min-width:860px){.pillars li{padding:var(--s5) var(--s5) var(--s5) 0;border-bottom:0}.pillars li+li{padding-left:var(--s5);border-left:1px solid var(--rule)}}
+.pillars .num{font-family:var(--display);font-size:.875rem;color:var(--accent);letter-spacing:.1em}
+.pillars h3{font-family:var(--serif-zh);font-weight:700;font-size:1.375rem;color:var(--walnut);margin:var(--s2) 0 0;letter-spacing:.04em}
+.pillars h3 .en{display:block;font-size:1rem;color:var(--muted);letter-spacing:0;margin-top:2px}
+.pillars p{margin:var(--s3) 0 0;font-size:.9375rem}
+.pillars p[lang=en]{font-family:var(--display);font-weight:300;color:var(--muted);margin-top:var(--s2);line-height:1.6}
+
+/* Sessions */
+.session{display:grid;gap:var(--s5);padding-block:clamp(40px,6vw,80px);border-top:1px solid var(--rule)}
+.session:first-of-type{border-top:0;padding-top:0}
+@media (min-width:960px){
+  .session{grid-template-columns:240px 1fr;gap:var(--s7)}
+  .session-meta{position:sticky;top:calc(var(--nav-h) + 32px);align-self:start}
+}
+.session-no{font-family:var(--display);font-size:.875rem;letter-spacing:.14em;color:var(--accent);margin:0}
+.session h3{font-family:var(--serif-zh);font-weight:700;color:var(--walnut);font-size:clamp(1.75rem,1.4rem + 1.4vw,2.375rem);line-height:1.25;letter-spacing:.06em;margin:0}
+.session h3 .en{display:block;font-size:1.0625rem;letter-spacing:0;color:var(--muted);margin-top:var(--s1)}
+.session-date{font-family:var(--display);font-size:1.125rem;margin:var(--s4) 0 0;color:var(--ink)}
+.session-count{margin:0;font-size:.8125rem;color:var(--muted)}
+
+/* Justified gallery：不裁切照片，依原始比例排成整齊的列 */
+.gallery{display:flex;flex-wrap:wrap;gap:clamp(6px,.8vw,12px)}
+.gallery::after{content:"";flex-grow:9999}
+.tile{
+  flex:calc(var(--r) * 100) 1 calc(var(--r) * 150px);aspect-ratio:var(--r);
+  position:relative;overflow:hidden;background:var(--card);border-radius:2px;cursor:zoom-in;
+}
+@media (min-width:640px){.tile{flex-basis:calc(var(--r) * 200px)}}
+@media (min-width:960px){.tile{flex-basis:calc(var(--r) * 170px)}}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.tile:hover img{transform:scale(1.03)}
+
+/* Join */
+.join{text-align:center}
+.join h2{font-size:clamp(2.25rem,1.6rem + 3vw,4rem)}
+.join p{margin:var(--s4) auto 0;max-width:30em;color:var(--muted)}
+.ig{
+  display:inline-flex;align-items:center;gap:12px;margin-top:var(--s6);
+  padding:14px 26px;min-height:48px;border:1px solid var(--walnut);border-radius:999px;
+  color:var(--walnut);text-decoration:none;font-size:1rem;transition:background .2s,color .2s;
+}
+a.ig:hover{background:var(--walnut);color:var(--paper)}
+.ig svg{width:20px;height:20px}
+
+footer{border-top:1px solid var(--rule);padding-block:var(--s5);font-size:.8125rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2)}
+
+/* Reveal（尊重減少動態設定） */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+
+/* ---------- Lightbox（原生 dialog） ---------- */
+dialog.lb{
+  border:0;padding:0;margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;
+  background:var(--overlay);color:#EDE6DA;
+}
+dialog.lb::backdrop{background:var(--overlay)}
+.lb-stage{position:absolute;inset:56px 64px 56px;display:flex;align-items:center;justify-content:center}
+@media (max-width:640px){.lb-stage{inset:56px 8px 72px}}
+.lb-stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.lb button{
+  position:absolute;width:48px;height:48px;border:0;border-radius:50%;
+  background:rgba(255,255,255,.08);color:#EDE6DA;font-size:22px;line-height:1;cursor:pointer;
+  display:grid;place-items:center;transition:background .2s;
+}
+.lb button:hover{background:rgba(255,255,255,.18)}
+.lb .close{top:8px;right:8px}
+.lb .prev{left:8px;top:50%;translate:0 -50%}
+.lb .next{right:8px;top:50%;translate:0 -50%}
+@media (max-width:640px){.lb .prev,.lb .next{top:auto;bottom:12px;translate:none}.lb .prev{left:calc(50% - 64px)}.lb .next{right:calc(50% - 64px)}}
+.lb-count{position:absolute;top:20px;left:20px;font-family:var(--display);font-size:.875rem;letter-spacing:.1em;opacity:.8;margin:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容 Skip to content</a>
+
+<nav class="nav" aria-label="主選單 Main">
+  <div class="wrap">
+    <a class="brand" href="#top" lang="en">Jam Night</a>
+    <ul>
+      <li><a class="link" href="#about">理念<span class="en" lang="en">About</span></a></li>
+      <li><a class="link" href="#sessions">場次<span class="en" lang="en">Sessions</span></a></li>
+      <li><a class="link" href="#join">加入<span class="en" lang="en">Join</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <p class="label" lang="en">Community Music Jam · Xindian, New Taipei</p>
+      <h1 lang="en">Jam Night</h1>
+      <div class="hero-grid">
+        <div>
+          <p class="lede">一群愛玩音樂的朋友，<br class="d">在新店山上，把夜晚玩成一場音樂實驗。</p>
+          <p class="lede-en" lang="en">A hillside music night in Xindian, where friends — and friends of friends — turn music into play.</p>
+        </div>
+        <ul class="facts">
+          <li><b>20</b><span>屆 · <span lang="en">editions</span></span></li>
+          <li><b>∞</b><span>種玩法 · <span lang="en">ways to play</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <figure class="hero-photo">
+    <img src="images/e3-09-1600.webp" srcset="images/e3-09-800.webp 800w, images/e3-09-1600.webp 1600w" sizes="100vw"
+         width="1600" height="1067" fetchpriority="high" decoding="async"
+         alt="2026 年 9 月一Jam鍾情活動結束後，數十位樂手與觀眾在木造棚架下的大合照">
+    <figcaption><span>一Jam鍾情 <span lang="en">Love at First Jam</span></span><time datetime="2026-09-12">2026.09.12</time></figcaption>
+  </figure>
+
+  <!-- About -->
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="label" lang="en">About</p>
+          <h2 id="about-title">我們的理念<span class="en" lang="en">Why we jam</span></h2>
+        </div>
+      </div>
+
+      <div class="story">
+        <figure class="reveal">
+          <img src="images/e2-01-800.webp" srcset="images/e2-01-800.webp 800w, images/e2-01-1600.webp 1600w"
+               sizes="(min-width:860px) 45vw, 100vw" width="1600" height="1067" loading="lazy" decoding="async"
+               alt="新店花園新城山上的活動場地：被樹林包圍的紅磚木造棚屋">
+        </figure>
+        <div class="text reveal">
+          <p class="quote">「音樂就是玩樂。」</p>
+          <p>Jam Night 從新店山上的花園新城社區開始。一群喜歡玩音樂的朋友聚在一起，想邀請更多人一起玩。</p>
+          <p>看似隨意的一個舉動，就這樣一屆一屆辦了下去。隨著活動越來越大，我們想讓更多人知道：這裡是一個實驗場，歡迎你帶著樂器、帶著好奇心，一起來玩。</p>
+          <p lang="en">Jam Night began in Huayuan Xincheng (Garden New City), a hillside community in Xindian. A few friends who loved making music got together and wanted more people to join in. What started as a casual idea simply kept going — twenty editions and counting. As the night grows, we want more people to know: this is a playground for musical experiments, and you’re invited.</p>
+        </div>
+      </div>
+
+      <ol class="pillars">
+        <li class="reveal">
+          <span class="num" lang="en">01</span>
+          <h3>實驗場<span class="en" lang="en">A playground for experiments</span></h3>
+          <p>沒有標準答案。任何樂器、任何想法，都可以在這裡試試看。</p>
+          <p lang="en">No right answers. Bring any instrument, any idea, and try it out.</p>
+        </li>
+        <li class="reveal">
+          <span class="num" lang="en">02</span>
+          <h3>音樂就是玩樂<span class="en" lang="en">Music is play</span></h3>
+          <p>以熱情和玩心出發，享受每一次即興的當下。</p>
+          <p lang="en">We start from passion and playfulness, and enjoy every improvised moment.</p>
+        </li>
+        <li class="reveal">
+          <span class="num" lang="en">03</span>
+          <h3>用音樂凝聚人<span class="en" lang="en">Music brings us together</span></h3>
+          <p>陌生人在同一首曲子裡，變成了朋友。</p>
+          <p lang="en">Strangers become friends inside the same song.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Sessions -->
+  <section id="sessions" aria-labelledby="sessions-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="label" lang="en">Sessions</p>
+          <h2 id="sessions-title">歷屆場次<span class="en" lang="en">Past nights</span></h2>
+        </div>
+        <p>每一場都有自己的名字，也都留下了不一樣的聲音。點照片可以放大看。<br><span lang="en">Every night has its own name — and its own sound. Tap a photo to enlarge.</span></p>
+      </div>
+
+    <article class="session" id="s05" aria-labelledby="t05">
+      <header class="session-meta">
+        <h3 id="t05"><span lang="zh-Hant">相Jam恨晚</span><span class="en" lang="en">Wish We’d Jammed Sooner</span></h3>
+        <p class="session-date"><time datetime="2026-10-17">2026.10.17</time></p>
+        <p class="session-count">14 張照片 <span lang="en">photos</span></p>
+      </header>
+      <div class="gallery">
+<a class="tile" href="images/e4-01-1600.webp" style="--r:0.6775" data-w="1084" data-h="1600"><img src="images/e4-01-800.webp" srcset="images/e4-01-800.webp 800w, images/e4-01-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1084" height="1600" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 1"></a>
+<a class="tile" href="images/e4-02-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-02-800.webp" srcset="images/e4-02-800.webp 800w, images/e4-02-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 2"></a>
+<a class="tile" href="images/e4-03-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-03-800.webp" srcset="images/e4-03-800.webp 800w, images/e4-03-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 3"></a>
+<a class="tile" href="images/e4-04-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-04-800.webp" srcset="images/e4-04-800.webp 800w, images/e4-04-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 4"></a>
+<a class="tile" href="images/e4-05-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-05-800.webp" srcset="images/e4-05-800.webp 800w, images/e4-05-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 5"></a>
+<a class="tile" href="images/e4-06-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-06-800.webp" srcset="images/e4-06-800.webp 800w, images/e4-06-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 6"></a>
+<a class="tile" href="images/e4-07-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-07-800.webp" srcset="images/e4-07-800.webp 800w, images/e4-07-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 7"></a>
+<a class="tile" href="images/e4-08-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-08-800.webp" srcset="images/e4-08-800.webp 800w, images/e4-08-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 8"></a>
+<a class="tile" href="images/e4-09-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-09-800.webp" srcset="images/e4-09-800.webp 800w, images/e4-09-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 9"></a>
+<a class="tile" href="images/e4-10-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-10-800.webp" srcset="images/e4-10-800.webp 800w, images/e4-10-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 10"></a>
+<a class="tile" href="images/e4-11-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-11-800.webp" srcset="images/e4-11-800.webp 800w, images/e4-11-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 11"></a>
+<a class="tile" href="images/e4-12-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-12-800.webp" srcset="images/e4-12-800.webp 800w, images/e4-12-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 12"></a>
+<a class="tile" href="images/e4-13-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-13-800.webp" srcset="images/e4-13-800.webp 800w, images/e4-13-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 13"></a>
+<a class="tile" href="images/e4-14-1600.webp" style="--r:1.5009" data-w="1600" data-h="1066"><img src="images/e4-14-800.webp" srcset="images/e4-14-800.webp 800w, images/e4-14-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1066" loading="lazy" decoding="async" alt="相Jam恨晚 現場照片 14"></a>
+      </div>
+    </article>
+
+    <article class="session" id="s04" aria-labelledby="t04">
+      <header class="session-meta">
+        <h3 id="t04"><span lang="zh-Hant">一Jam鍾情</span><span class="en" lang="en">Love at First Jam</span></h3>
+        <p class="session-date"><time datetime="2026-09-12">2026.09.12</time></p>
+        <p class="session-count">20 張照片 <span lang="en">photos</span></p>
+      </header>
+      <div class="gallery">
+<a class="tile" href="images/e3-01-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-01-800.webp" srcset="images/e3-01-800.webp 800w, images/e3-01-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 1"></a>
+<a class="tile" href="images/e3-02-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-02-800.webp" srcset="images/e3-02-800.webp 800w, images/e3-02-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 2"></a>
+<a class="tile" href="images/e3-03-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-03-800.webp" srcset="images/e3-03-800.webp 800w, images/e3-03-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 3"></a>
+<a class="tile" href="images/e3-04-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-04-800.webp" srcset="images/e3-04-800.webp 800w, images/e3-04-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 4"></a>
+<a class="tile" href="images/e3-05-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-05-800.webp" srcset="images/e3-05-800.webp 800w, images/e3-05-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 5"></a>
+<a class="tile" href="images/e3-06-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-06-800.webp" srcset="images/e3-06-800.webp 800w, images/e3-06-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 6"></a>
+<a class="tile" href="images/e3-07-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-07-800.webp" srcset="images/e3-07-800.webp 800w, images/e3-07-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 7"></a>
+<a class="tile" href="images/e3-08-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-08-800.webp" srcset="images/e3-08-800.webp 800w, images/e3-08-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 8"></a>
+<a class="tile" href="images/e3-09-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-09-800.webp" srcset="images/e3-09-800.webp 800w, images/e3-09-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 9"></a>
+<a class="tile" href="images/e3-10-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-10-800.webp" srcset="images/e3-10-800.webp 800w, images/e3-10-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 10"></a>
+<a class="tile" href="images/e3-11-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-11-800.webp" srcset="images/e3-11-800.webp 800w, images/e3-11-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 11"></a>
+<a class="tile" href="images/e3-12-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-12-800.webp" srcset="images/e3-12-800.webp 800w, images/e3-12-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 12"></a>
+<a class="tile" href="images/e3-13-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-13-800.webp" srcset="images/e3-13-800.webp 800w, images/e3-13-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 13"></a>
+<a class="tile" href="images/e3-14-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-14-800.webp" srcset="images/e3-14-800.webp 800w, images/e3-14-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 14"></a>
+<a class="tile" href="images/e3-15-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-15-800.webp" srcset="images/e3-15-800.webp 800w, images/e3-15-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 15"></a>
+<a class="tile" href="images/e3-16-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-16-800.webp" srcset="images/e3-16-800.webp 800w, images/e3-16-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 16"></a>
+<a class="tile" href="images/e3-17-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-17-800.webp" srcset="images/e3-17-800.webp 800w, images/e3-17-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 17"></a>
+<a class="tile" href="images/e3-18-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-18-800.webp" srcset="images/e3-18-800.webp 800w, images/e3-18-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 18"></a>
+<a class="tile" href="images/e3-19-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-19-800.webp" srcset="images/e3-19-800.webp 800w, images/e3-19-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 19"></a>
+<a class="tile" href="images/e3-20-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e3-20-800.webp" srcset="images/e3-20-800.webp 800w, images/e3-20-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="一Jam鍾情 現場照片 20"></a>
+      </div>
+    </article>
+
+    <article class="session" id="s03" aria-labelledby="t03">
+      <header class="session-meta">
+        <h3 id="t03"><span lang="zh-Hant">請多Jam諒</span><span class="en" lang="en">Please Bear With Our Jam</span></h3>
+        <p class="session-date"><time datetime="2026-04-18">2026.04.18</time></p>
+        <p class="session-count">21 張照片 <span lang="en">photos</span></p>
+      </header>
+      <div class="gallery">
+<a class="tile" href="images/e2-01-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-01-800.webp" srcset="images/e2-01-800.webp 800w, images/e2-01-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 1"></a>
+<a class="tile" href="images/e2-02-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-02-800.webp" srcset="images/e2-02-800.webp 800w, images/e2-02-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 2"></a>
+<a class="tile" href="images/e2-03-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-03-800.webp" srcset="images/e2-03-800.webp 800w, images/e2-03-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 3"></a>
+<a class="tile" href="images/e2-04-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-04-800.webp" srcset="images/e2-04-800.webp 800w, images/e2-04-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 4"></a>
+<a class="tile" href="images/e2-05-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-05-800.webp" srcset="images/e2-05-800.webp 800w, images/e2-05-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 5"></a>
+<a class="tile" href="images/e2-06-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-06-800.webp" srcset="images/e2-06-800.webp 800w, images/e2-06-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 6"></a>
+<a class="tile" href="images/e2-07-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-07-800.webp" srcset="images/e2-07-800.webp 800w, images/e2-07-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 7"></a>
+<a class="tile" href="images/e2-08-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-08-800.webp" srcset="images/e2-08-800.webp 800w, images/e2-08-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 8"></a>
+<a class="tile" href="images/e2-09-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-09-800.webp" srcset="images/e2-09-800.webp 800w, images/e2-09-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 9"></a>
+<a class="tile" href="images/e2-10-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-10-800.webp" srcset="images/e2-10-800.webp 800w, images/e2-10-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 10"></a>
+<a class="tile" href="images/e2-11-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-11-800.webp" srcset="images/e2-11-800.webp 800w, images/e2-11-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 11"></a>
+<a class="tile" href="images/e2-12-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-12-800.webp" srcset="images/e2-12-800.webp 800w, images/e2-12-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 12"></a>
+<a class="tile" href="images/e2-13-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-13-800.webp" srcset="images/e2-13-800.webp 800w, images/e2-13-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 13"></a>
+<a class="tile" href="images/e2-14-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-14-800.webp" srcset="images/e2-14-800.webp 800w, images/e2-14-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 14"></a>
+<a class="tile" href="images/e2-15-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-15-800.webp" srcset="images/e2-15-800.webp 800w, images/e2-15-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 15"></a>
+<a class="tile" href="images/e2-16-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-16-800.webp" srcset="images/e2-16-800.webp 800w, images/e2-16-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 16"></a>
+<a class="tile" href="images/e2-17-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-17-800.webp" srcset="images/e2-17-800.webp 800w, images/e2-17-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 17"></a>
+<a class="tile" href="images/e2-18-1600.webp" style="--r:0.6669" data-w="1067" data-h="1600"><img src="images/e2-18-800.webp" srcset="images/e2-18-800.webp 800w, images/e2-18-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1067" height="1600" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 18"></a>
+<a class="tile" href="images/e2-19-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-19-800.webp" srcset="images/e2-19-800.webp 800w, images/e2-19-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 19"></a>
+<a class="tile" href="images/e2-20-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-20-800.webp" srcset="images/e2-20-800.webp 800w, images/e2-20-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 20"></a>
+<a class="tile" href="images/e2-21-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e2-21-800.webp" srcset="images/e2-21-800.webp 800w, images/e2-21-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="請多Jam諒 現場照片 21"></a>
+      </div>
+    </article>
+
+    <article class="session" id="s02" aria-labelledby="t02">
+      <header class="session-meta">
+        <h3 id="t02"><span lang="zh-Hant">Jam多識廣</span><span class="en" lang="en">Jam More, Know More</span></h3>
+        <p class="session-date"><time datetime="2026-01-17">2026.01.17</time></p>
+        <p class="session-count">12 張照片 <span lang="en">photos</span></p>
+      </header>
+      <div class="gallery">
+<a class="tile" href="images/e1-01-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-01-800.webp" srcset="images/e1-01-800.webp 800w, images/e1-01-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 1"></a>
+<a class="tile" href="images/e1-02-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-02-800.webp" srcset="images/e1-02-800.webp 800w, images/e1-02-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 2"></a>
+<a class="tile" href="images/e1-03-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-03-800.webp" srcset="images/e1-03-800.webp 800w, images/e1-03-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 3"></a>
+<a class="tile" href="images/e1-04-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-04-800.webp" srcset="images/e1-04-800.webp 800w, images/e1-04-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 4"></a>
+<a class="tile" href="images/e1-05-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-05-800.webp" srcset="images/e1-05-800.webp 800w, images/e1-05-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 5"></a>
+<a class="tile" href="images/e1-06-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-06-800.webp" srcset="images/e1-06-800.webp 800w, images/e1-06-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 6"></a>
+<a class="tile" href="images/e1-07-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-07-800.webp" srcset="images/e1-07-800.webp 800w, images/e1-07-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 7"></a>
+<a class="tile" href="images/e1-08-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-08-800.webp" srcset="images/e1-08-800.webp 800w, images/e1-08-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 8"></a>
+<a class="tile" href="images/e1-09-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-09-800.webp" srcset="images/e1-09-800.webp 800w, images/e1-09-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 9"></a>
+<a class="tile" href="images/e1-10-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-10-800.webp" srcset="images/e1-10-800.webp 800w, images/e1-10-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 10"></a>
+<a class="tile" href="images/e1-11-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-11-800.webp" srcset="images/e1-11-800.webp 800w, images/e1-11-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 11"></a>
+<a class="tile" href="images/e1-12-1600.webp" style="--r:1.4995" data-w="1600" data-h="1067"><img src="images/e1-12-800.webp" srcset="images/e1-12-800.webp 800w, images/e1-12-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="1067" loading="lazy" decoding="async" alt="Jam多識廣 現場照片 12"></a>
+      </div>
+    </article>
+
+    <article class="session" id="s01" aria-labelledby="t01">
+      <header class="session-meta">
+        <h3 id="t01"><span lang="zh-Hant">最初的那一晚</span><span class="en" lang="en">Where It Began</span></h3>
+        <p class="session-date"><time datetime="2022-04-03">2022.04.03</time></p>
+        <p class="session-count">2 張照片 <span lang="en">photos</span></p>
+      </header>
+      <div class="gallery">
+<a class="tile" href="images/e0-01-1600.webp" style="--r:1.7798" data-w="1600" data-h="899"><img src="images/e0-01-800.webp" srcset="images/e0-01-800.webp 800w, images/e0-01-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="899" loading="lazy" decoding="async" alt="最初的那一晚 現場照片 1"></a>
+<a class="tile" href="images/e0-02-1600.webp" style="--r:1.7798" data-w="1600" data-h="899"><img src="images/e0-02-800.webp" srcset="images/e0-02-800.webp 800w, images/e0-02-1600.webp 1600w" sizes="(min-width: 960px) 30vw, 50vw" width="1600" height="899" loading="lazy" decoding="async" alt="最初的那一晚 現場照片 2"></a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section class="join about" id="join" aria-labelledby="join-title">
+    <div class="wrap">
+      <p class="label" lang="en">Join us</p>
+      <h2 id="join-title">下一次，一起來玩<span class="en" lang="en">Come jam with us</span></h2>
+      <p>不管你是第一次拿起樂器，還是玩了很多年，都歡迎來山上坐坐、聽聽、一起玩。<br><span lang="en">First-timer or seasoned player — come up the hill, listen, and play along.</span></p>
+      <!-- TODO：把下面的 <span> 換成 <a href="IG 帳號網址">，按鈕就能點了 -->
+      <span class="ig" aria-label="Instagram 一塊樂土">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram ／ 一塊樂土
+      </span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Jam Night</span>
+    <span>新店 花園新城 · <span lang="en">Xindian, New Taipei</span></span>
+  </div>
+</footer>
+
+<dialog class="lb" aria-label="照片檢視 Photo viewer">
+  <p class="lb-count" aria-live="polite"></p>
+  <div class="lb-stage"><img alt=""></div>
+  <button class="prev" type="button" aria-label="上一張 Previous">←</button>
+  <button class="next" type="button" aria-label="下一張 Next">→</button>
+  <button class="close" type="button" aria-label="關閉 Close">✕</button>
+</dialog>
+
+<script>
+(() => {
+  // Nav 捲動後加細線
+  const nav = document.querySelector('.nav');
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 8);
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // 進場淡入
+  const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+  // Lightbox
+  const dlg = document.querySelector('dialog.lb');
+  if (!dlg || !dlg.showModal) return;          // 舊瀏覽器：直接開大圖連結
+  const img = dlg.querySelector('img'), count = dlg.querySelector('.lb-count');
+  let list = [], i = 0, opener = null;
+  const show = n => {
+    i = (n + list.length) % list.length;
+    const a = list[i], t = a.querySelector('img');
+    img.src = a.href; img.alt = t.alt;
+    count.textContent = `${i + 1} / ${list.length}`;
+    [list[i+1], list[i-1]].forEach(x => { if (x) new Image().src = x.href; });  // 預載前後張
+  };
+  document.querySelectorAll('.gallery').forEach(g => g.addEventListener('click', e => {
+    const a = e.target.closest('a.tile'); if (!a) return;
+    e.preventDefault();
+    list = [...g.querySelectorAll('a.tile')]; opener = a;
+    show(list.indexOf(a)); dlg.showModal();
+  }));
+  dlg.querySelector('.prev').onclick = () => show(i - 1);
+  dlg.querySelector('.next').onclick = () => show(i + 1);
+  dlg.querySelector('.close').onclick = () => dlg.close();
+  dlg.addEventListener('click', e => { if (e.target === dlg || e.target.classList.contains('lb-stage')) dlg.close(); });
+  dlg.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') show(i + 1);
+    if (e.key === 'ArrowLeft') show(i - 1);
+  });
+  dlg.addEventListener('close', () => { img.removeAttribute('src'); opener && opener.focus(); });
+  // 手機左右滑
+  let x0 = null;
+  dlg.addEventListener('touchstart', e => x0 = e.touches[0].clientX, {passive:true});
+  dlg.addEventListener('touchend', e => {
+    if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1)); x0 = null;
+  });
+})();
+</script>
+</body>
+</html>
